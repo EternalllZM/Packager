@@ -64,12 +64,12 @@ move-Item "Generate Build Information.cmd" -Destination ".\Kirby Air Ride Online
 Start-Sleep -Seconds 2
 [System.Windows.MessageBox]::Show('Press OK to be redirected to Packager download.','Packager Update Notice')
 Start-Process -FilePath https://www.kirbyairri.de/winpackager.html
-# Update Process (LEGACY)
-#start-process powershell -WindowStyle Normal -ArgumentList ". .\UpdateAssistant.ps1;Method1"
 
 }
 )
-# Check for Update Function (Crappy but works)
+
+# Check for Updates
+
 $Button = New-Object System.Windows.Forms.Button
 $Button.Location = New-Object System.Drawing.Size(70,80)
 $Button.Size = New-Object System.Drawing.Size(250,30)
