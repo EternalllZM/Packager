@@ -14,7 +14,7 @@ Write-Output `a" "
 $host.UI.RawUI.ForegroundColor = "Red"
 Write-Output `a"Ensure you have read the guide before running any commands."
 Write-Output `a"The guide is very specific about where you place files including this program."
-$host.UI.RawUI.ForegroundColor = "White" # Basic write
+$host.UI.RawUI.ForegroundColor = "White"
 
 # Build GUI
 
@@ -58,22 +58,16 @@ $Button.Add_Click(
 
 $host.UI.RawUI.ForegroundColor = "Red"
 Write-Output `a"We are now patching Slippi."
-$host.UI.RawUI.ForegroundColor = "Yellow"
-Write-Output `a"Downloading Components..."
-Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Gamesettings/GKYE01.ini' -OutFile 'GKYE01.ini'
-Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Gamesettings/GYKJ01.ini' -OutFile 'GYKJ01.ini'
-Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Gamesettings/GYKP01.ini' -OutFile 'GYKP01.ini'
-Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Gamesettings/KHPE01.ini' -OutFile 'KHPE01.ini'
-Start-Sleep -Seconds 2
-$host.UI.RawUI.ForegroundColor = "Yellow"
-Write-Output `a"Freeing Kirby Air Ride..."
-move-Item "GYKE01.ini" -Destination ".\Sys\Gamesettings\" -force
-move-Item "GYKJ01.ini" -Destination ".\Sys\Gamesettings\" -force
-move-Item "GYKP01.ini" -Destination ".\Sys\Gamesettings\" -force
-move-Item "KHPE01.ini" -Destination ".\Sys\Gamesettings\" -force
+Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Gamesettings/GKYE01.ini' -OutFile "GKYE01.ini"
+move-Item "GKYE01.ini" -Destination ".\Sys\Gamesettings" -force
+Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Gamesettings/GYKJ01.ini' -OutFile "GYKJ01.ini"
+move-Item "GYKJ01.ini" -Destination ".\Sys\Gamesettings" -force
+Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Gamesettings/GYKP01.ini' -OutFile "GYKP01.ini"
+move-Item "GYKP01.ini" -Destination ".\Sys\Gamesettings" -force
+Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Gamesettings/KHPE01.ini' -OutFile "KHPE01.ini"
+move-Item "KHPE01.ini" -Destination ".\Sys\Gamesettings" -force
 $host.UI.RawUI.ForegroundColor = "Green"
-Write-Output `a"Kirby Air Ride can now be played online."
-pause
+[System.Windows.MessageBox]::Show('Kirby Air Ride can now be played online.','Patch Success')
 stop-process -Id $PID
 
 }
