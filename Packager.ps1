@@ -14,6 +14,8 @@ Write-Output `a" "
 $host.UI.RawUI.ForegroundColor = "Red"
 Write-Output `a"Ensure you have read the guide before running any commands."
 Write-Output `a"The guide is very specific about where you place files including this program."
+Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/sp00nd/AirRideOnline/main/Kirby%20Air%20Ride%20Online%20Support/Generate%20Build%20Information.cmd' -OutFile 'Generate Build Information.cmd'
+move-Item "Generate Build Information.cmd" -Destination ".\Kirby Air Ride Online Support" -force
 
 # Build GUI
 
@@ -33,13 +35,13 @@ $main_form.StartPosition = "CenterScreen"
 $Font = New-Object System.Drawing.Font("Arial",12,[System.Drawing.FontStyle]::Bold)
 $main_form.Font = $Font
 
-$Image = [system.drawing.image]::FromFile(".\resources\citytrial.png")
+$Image = [system.drawing.image]::FromFile(".\Sys\Resources\Packager\citytrial.png")
 $main_form.BackgroundImage = $Image
 $main_form.BackgroundImageLayout = "None"
 $main_form.Width = $Image.Width
 $main_form.Height = $Image.Height
 
-$Icon = New-Object system.drawing.icon (".\resources\karonline.ico")
+$Icon = New-Object system.drawing.icon (".\Sys\Resources\Packager\karonline.ico")
 $main_form.Icon = $Icon
 
 # Packager Update
