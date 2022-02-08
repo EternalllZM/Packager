@@ -15,16 +15,17 @@ Write-Output `a"If versions match, you do not need to perform updates."
 Write-Output `a" "
 Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Resources/PackagerVersion.txt' -OutFile 'PackagerVersion.txt'
 Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Resources/GeckoVersion.txt' -OutFile 'GeckoVersion.txt'
-Get-Content -Path ".\Sys\Resources\PackagerVersion.txt"
-Get-Content -Path ".\Sys\Resources\GeckoVersion.txt"
-Remove-Item ".\PackagerVersion.txt" -force
-Remove-Item ".\GeckoVersion.txt" -force
+Get-Content -Path ".\PackagerVersion.txt"
+Get-Content -Path ".\GeckoVersion.txt"  
 Write-Output `a" "
 $host.UI.RawUI.ForegroundColor = "Red"
 Write-Output `a"Ensure you have read the guide before running any commands."
 Write-Output `a"The guide is very specific about where you place this program in files."
 Write-Output `a" "
+# Post Initialization
 $host.UI.RawUI.ForegroundColor = "White"
+Remove-Item ".\PackagerVersion.txt" -force
+Remove-Item ".\GeckoVersion.txt" -force
 
 # Build GUI
 
@@ -118,7 +119,7 @@ $main_form.Controls.Add($Button)
 $Button.Add_Click(
 {
 
-Start-Process -FilePath https://discord.gg/nBeHhQ9WcK
+Start-Process -FilePath http://discord.kirbyairri.de/
 
 }
 ) # Gecko Restore Process
@@ -155,6 +156,9 @@ $Button.Add_Click(
 
 {
 
+$host.UI.RawUI.BackgroundColor = "DarkBlue"
+$host.UI.RawUI.ForegroundColor = "DarkBlue"
+$Host.PrivateData.ErrorForegroundColor = "DarkBlue"
 [System.Windows.MessageBox]::Show('You will be asked to back up your codes first. If you do not wish to do so, select Cancel when it asks for the path.','Gecko Backup and Update Notice')
 $shell = New-Object -ComObject Shell.Application
 $selectedfolder = $shell.BrowseForFolder( 0, 'Select Where To Save Backup', 16, $shell.NameSpace( 17 ).Self.Path ).Self.Path
@@ -162,7 +166,7 @@ Set-Location -Path User\Gamesettings
 copy-Item "GKYE01.ini" -Destination $selectedfolder
 copy-Item "KHPE01.ini" -Destination $selectedfolder
 [System.Windows.MessageBox]::Show('Press OK to update Gecko Codes and exit Packager.','Gecko Backup and Update Notice')
-Set-Location -Path "User\GameSettings\"
+Set-Location -Path "User\GameSettings"
 Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/User/Gamesettings/GKYE01.ini' -OutFile 'GKYE01.ini'
 Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/User/Gamesettings/KHPE01.ini' -OutFile 'KHPE01.ini'
 Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/User/Gamesettings/modifier_guide.txt' -OutFile 'modifier_guide.txt'
