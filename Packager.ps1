@@ -57,10 +57,22 @@ $Button.Add_Click(
 {
 
 $host.UI.RawUI.ForegroundColor = "Red"
-Write-Output `a"We are now patching Slippi..."
+Write-Output `a"We are now patching Slippi."
+$host.UI.RawUI.ForegroundColor = "Yellow"
+Write-Output `a"Downloading Components..."
+Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Gamesettings/GKYE01.ini' -OutFile 'GKYE01.ini'
+Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Gamesettings/GYKJ01.ini' -OutFile 'GYKJ01.ini'
+Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Gamesettings/GYKP01.ini' -OutFile 'GYKP01.ini'
+Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Gamesettings/KHPE01.ini' -OutFile 'KHPE01.ini'
+Start-Sleep 
 $host.UI.RawUI.ForegroundColor = "Yellow"
 Write-Output `a"Freeing Kirby Air Ride..."
-Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Packager.ps1' -OutFile 'Packager.ps1'
+move-Item "GYKE01.ini" -Destination ".\Sys\Gamesettings\" -force
+move-Item "GYKJ01.ini" -Destination ".\Sys\Gamesettings\" -force
+move-Item "GYKP01.ini" -Destination ".\Sys\Gamesettings\" -force
+move-Item "KHPE01.ini" -Destination ".\Sys\Gamesettings\" -force
+$host.UI.RawUI.ForegroundColor = "Green"
+Write-Output `a"Kirby Air Ride can now be played online."
 pause
 stop-process -Id $PID
 
@@ -133,7 +145,6 @@ $Button.Size = New-Object System.Drawing.Size(250,30)
 $Button.Text = "Backup and Update Gecko"
 $Button.BackColor = "#5CB85B"
 $main_form.Controls.Add($Button)
-#Button2 Click
 $Button.Add_Click(
 
 {
@@ -144,32 +155,27 @@ $selectedfolder = $shell.BrowseForFolder( 0, 'Select Where To Save Backup', 16, 
 Set-Location -Path User\Gamesettings
 copy-Item "GKYE01.ini" -Destination $selectedfolder
 copy-Item "KHPE01.ini" -Destination $selectedfolder
-Start-Sleep -Seconds 3
 [System.Windows.MessageBox]::Show('Press OK to update Gecko Codes and exit Packager.','Gecko Backup and Update Notice')
 Set-Location -Path User\GameSettings\
-Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/sp00nd/AirRideOnline/main/User/Gamesettings/GKYE01.ini' -OutFile 'GKYE01.ini'
-Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/sp00nd/AirRideOnline/main/User/Gamesettings/KHPE01.ini' -OutFile 'KHPE01.ini'
-Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/sp00nd/AirRideOnline/main/User/Gamesettings/modifier_guide.txt' -OutFile 'modifier_guide.txt'
-Start-Sleep -Seconds 3
+Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/AirRideOnline/main/User/Gamesettings/GKYE01.ini' -OutFile 'GKYE01.ini'
+Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/AirRideOnline/main/User/Gamesettings/KHPE01.ini' -OutFile 'KHPE01.ini'
+Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/AirRideOnline/main/User/Gamesettings/modifier_guide.txt' -OutFile 'modifier_guide.txt'
+[System.Windows.MessageBox]::Show('Gecko Codes Updated. Press OK to close out of Packager.','Gecko Codes Update')
 stop-process -Id $PID
 
 }
-) # Support Bundle
+) # Get Help
 
 $Button = New-Object System.Windows.Forms.Button
 $Button.Location = New-Object System.Drawing.Size(70,240)
 $Button.Size = New-Object System.Drawing.Size(250,30)
 $Button.Text = "Get Help"
 $main_form.Controls.Add($Button)
-#Button Click
 $Button.Add_Click(
 
 {
 
-Write-Output `a"Generating Support Bundle..."
 Start-Process -FilePath https://www.kirbyairri.de/winpackager.html
-$A = Start-Process -FilePath '.\Kirby Air Ride Online Support\Generate Build Information.cmd' -Wait -passthru;$a.ExitCode
-[System.Windows.MessageBox]::Show('Support Bundle Generated.','Success.')
 
 }
 
