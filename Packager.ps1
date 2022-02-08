@@ -18,6 +18,7 @@ Invoke-WebRequest -Uri "https://github.com/EternalllZM/Packager/blob/main/Sys/Re
 move-Item "citytrial.png" -Destination ".\Sys\Resources\Packager" -force
 Invoke-WebRequest -Uri "https://github.com/EternalllZM/Packager/blob/main/Sys/Resources/Packager/karonline.ico" -OutFile 'karonline.ico'
 move-Item "karonline.ico" -Destination ".\Sys\Resources\Packager" -force
+$host.UI.RawUI.ForegroundColor = "White" # Basic write
 
 # Build GUI
 
@@ -58,12 +59,10 @@ $Button.Add_Click(
 
 {
 
-[System.Windows.MessageBox]::Show('Attempting to update Packager content. Make sure to check whether you need updates by selecting Check for Updates on next run.','Packager Update Notice')
-Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/sp00nd/AirRideOnline/main/Kirby%20Air%20Ride%20Online%20Support/Generate%20Build%20Information.cmd' -OutFile 'Generate Build Information.cmd'
-move-Item "Generate Build Information.cmd" -Destination ".\Kirby Air Ride Online Support" -force
-Start-Sleep -Seconds 2
-[System.Windows.MessageBox]::Show('Press OK to be redirected to Packager download.','Packager Update Notice')
-Start-Process -FilePath https://www.kirbyairri.de/winpackager.html
+[System.Windows.MessageBox]::Show('Attempting to update Packager content.','Packager Update Notice')
+Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Packager.ps1' -OutFile 'Packager.ps1'
+$host.UI.RawUI.ForegroundColor = "Red"
+Write-Output `a"Packager has successfully updated itself. Please do not run any further commands, and restart the application."
 
 }
 )
@@ -76,17 +75,13 @@ $Button.Size = New-Object System.Drawing.Size(250,30)
 $Button.Text = "Check for Updates"
 $Button.BackColor = "#428BCA"
 $main_form.Controls.Add($Button)
-#Button2 Click
 $Button.Add_Click(
 {
 
-Start-Sleep -Seconds 1
-Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/sp00nd/AirRideOnline/main/Kirby%20Air%20Ride%20Online%20Support/Update%20Check.cmd' -OutFile 'Update Check.cmd'
-move-Item "Update Check.cmd" -Destination ".\Kirby Air Ride Online Support" -force
-$A = Start-Process -FilePath '.\Kirby Air Ride Online Support\Update Check.cmd' -Wait -passthru;$a.ExitCode
-Start-Sleep -Seconds 2
-Remove-Item ".\Kirby Air Ride Online Support\Update Check.cmd" -force
-Start-Sleep -Seconds 1
+Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Resources/Packager/CFU.bat' -OutFile 'CFU.bat'
+move-Item "CFU.bat" -Destination ".\Sys\Resources\Packager" -force
+$A = Start-Process -FilePath '.\Sys\Resources\Packager\CFU.bat' -Wait -passthru;$a.ExitCode
+Remove-Item ".\CFU.bat" -force
 
 }
 )
@@ -97,7 +92,6 @@ $Button.Size = New-Object System.Drawing.Size(250,30)
 $Button.BackColor = "#5CB85B"
 $Button.Text = "Restore Gecko Codes"
 $main_form.Controls.Add($Button)
-#Button2 Click
 $Button.Add_Click(
 
 {
@@ -108,7 +102,6 @@ $selectedfolder = $shell.BrowseForFolder( 0, 'Select Directory Containing Backup
 copy-Item "$selectedfolder\GKYE01.ini" -Destination ".\User\GameSettings"
 copy-Item "$selectedfolder\KHPE01.ini" -Destination ".\User\GameSettings"
 [System.Windows.MessageBox]::Show('Gecko Codes Restored. Press OK to close out of Packager.','Gecko Code Restore')
-Start-Sleep -Seconds 3
 stop-process -Id $PID
 
 }
