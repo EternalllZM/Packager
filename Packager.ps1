@@ -4,16 +4,26 @@ Write-Output `a"Created by Eternalll#6100 on Discord for the Kirby Workshop Comm
 Write-Output `a"https://kirbyairri.de"
 Write-Output `a" "
 $host.UI.RawUI.ForegroundColor = "Green"
+Write-Output `a"Your local Packager version is listed as the following."
+Write-Output `a" "
 Get-Content -Path ".\Sys\Resources\PackagerVersion.txt"
 Get-Content -Path ".\Sys\Resources\GeckoVersion.txt"
 Write-Output `a" "
 $host.UI.RawUI.ForegroundColor = "Yellow"
-Write-Output `a"To check for updates, select 'Check for Updates' and compare with the versions above (your current versions)."
-Write-Output `a"If versions match, you do not need to Update Packager at all."
+Write-Output `a"The server reports the following versions as the latest Packager."
+Write-Output `a"If versions match, you do not need to perform updates."
+Write-Output `a" "
+Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Resources/PackagerVersion.txt' -OutFile 'PackagerVersion.txt'
+Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Resources/GeckoVersion.txt' -OutFile 'GeckoVersion.txt'
+Get-Content -Path ".\Sys\Resources\PackagerVersion.txt"
+Get-Content -Path ".\Sys\Resources\GeckoVersion.txt"
+Remove-Item ".\PackagerVersion.txt" -force
+Remove-Item ".\GeckoVersion.txt" -force
 Write-Output `a" "
 $host.UI.RawUI.ForegroundColor = "Red"
 Write-Output `a"Ensure you have read the guide before running any commands."
 Write-Output `a"The guide is very specific about where you place this program in files."
+Write-Output `a" "
 $host.UI.RawUI.ForegroundColor = "White"
 
 # Build GUI
@@ -97,21 +107,18 @@ move-Item "PackagerVersion.txt" -Destination ".\Sys\Resources" -force
 stop-process -Id $PID
 
 }
-) # Check for Updates
+) # Workshop Discord
 
 $Button = New-Object System.Windows.Forms.Button
 $Button.Location = New-Object System.Drawing.Size(70,120)
 $Button.Size = New-Object System.Drawing.Size(250,30)
-$Button.Text = "Check for Updates"
+$Button.Text = "Join Discord"
 $Button.BackColor = "#428BCA"
 $main_form.Controls.Add($Button)
 $Button.Add_Click(
 {
 
-Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Resources/CFU.bat' -OutFile 'CFU.bat'
-move-Item "CFU.bat" -Destination ".\Sys\Resources\" -force
-$A = Start-Process -FilePath '.\Sys\Resources\CFU.bat' -Wait -passthru;$a.ExitCode
-Remove-Item ".\Sys\Resources\CFU.bat" -force
+Start-Process -FilePath https://discord.gg/nBeHhQ9WcK
 
 }
 ) # Gecko Restore Process
