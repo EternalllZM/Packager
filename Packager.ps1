@@ -15,7 +15,7 @@ $host.UI.RawUI.ForegroundColor = "Red"
 Write-Output `a"Ensure you have read the guide before running any commands."
 Write-Output `a"The guide is very specific about where you place files including this program."
 Invoke-WebRequest -Uri "https://github.com/EternalllZM/Packager/blob/main/Sys/Resources/Packager/background.png" -OutFile 'background.png'
-move-Item "citytrial.png" -Destination ".\Sys\Resources\Packager" -force
+move-Item "background.png" -Destination ".\Sys\Resources\Packager" -force
 Invoke-WebRequest -Uri "https://github.com/EternalllZM/Packager/blob/main/Sys/Resources/Packager/karonline.ico" -OutFile 'karonline.ico'
 move-Item "karonline.ico" -Destination ".\Sys\Resources\Packager" -force
 $host.UI.RawUI.ForegroundColor = "White" # Basic write
