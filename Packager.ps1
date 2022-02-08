@@ -66,7 +66,6 @@ Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/m
 move-Item "GYKP01.ini" -Destination ".\Sys\Gamesettings" -force
 Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Gamesettings/KHPE01.ini' -OutFile "KHPE01.ini"
 move-Item "KHPE01.ini" -Destination ".\Sys\Gamesettings" -force
-$host.UI.RawUI.ForegroundColor = "Green"
 [System.Windows.MessageBox]::Show('Kirby Air Ride can now be played online.','Patch Success')
 stop-process -Id $PID
 
@@ -75,7 +74,7 @@ stop-process -Id $PID
 )# Packager Update
 
 $Button = New-Object System.Windows.Forms.Button
-$Button.Location = New-Object System.Drawing.Size(70,160)
+$Button.Location = New-Object System.Drawing.Size(70,80)
 $Button.Size = New-Object System.Drawing.Size(250,30)
 $Button.BackColor = "#428BCA"
 $Button.Text = "Update Packager"
@@ -86,16 +85,14 @@ $Button.Add_Click(
 
 [System.Windows.MessageBox]::Show('Attempting to update Packager content.','Packager Update Notice')
 Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Packager.ps1' -OutFile 'Packager.ps1'
-$host.UI.RawUI.ForegroundColor = "Red"
-Write-Output `a"Packager has successfully updated itself. Please do not run any further commands, and restart the application."
-pause
+[System.Windows.MessageBox]::Show('Packager has been updated.','Update Success')
 stop-process -Id $PID
 
 }
 ) # Check for Updates
 
 $Button = New-Object System.Windows.Forms.Button
-$Button.Location = New-Object System.Drawing.Size(70,80)
+$Button.Location = New-Object System.Drawing.Size(70,120)
 $Button.Size = New-Object System.Drawing.Size(250,30)
 $Button.Text = "Check for Updates"
 $Button.BackColor = "#428BCA"
@@ -112,7 +109,7 @@ Remove-Item ".\Sys\Resources\CFU.bat" -force
 ) # Gecko Restore Process
 
 $Button = New-Object System.Windows.Forms.Button
-$Button.Location = New-Object System.Drawing.Size(70,120)
+$Button.Location = New-Object System.Drawing.Size(70,160)
 $Button.Size = New-Object System.Drawing.Size(250,30)
 $Button.BackColor = "#5CB85B"
 $Button.Text = "Restore Gecko Codes"
@@ -126,7 +123,7 @@ $shell = New-Object -ComObject Shell.Application
 $selectedfolder = $shell.BrowseForFolder( 0, 'Select Directory Containing Backup', 16, $shell.NameSpace( 17 ).Self.Path ).Self.Path
 copy-Item "$selectedfolder\GKYE01.ini" -Destination ".\User\GameSettings"
 copy-Item "$selectedfolder\KHPE01.ini" -Destination ".\User\GameSettings"
-[System.Windows.MessageBox]::Show('Gecko Codes Restored. Press OK to close out of Packager.','Gecko Code Restore')
+[System.Windows.MessageBox]::Show('Gecko Codes Restored.','Gecko Code Restore')
 stop-process -Id $PID
 
 }
@@ -154,7 +151,7 @@ Set-Location -Path User\GameSettings\
 Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/User/Gamesettings/GKYE01.ini' -OutFile 'GKYE01.ini'
 Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/User/Gamesettings/KHPE01.ini' -OutFile 'KHPE01.ini'
 Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/User/Gamesettings/modifier_guide.txt' -OutFile 'modifier_guide.txt'
-[System.Windows.MessageBox]::Show('Gecko Codes Updated. Press OK to close out of Packager.','Gecko Codes Update')
+[System.Windows.MessageBox]::Show('Gecko Codes Updated.','Gecko Codes Update')
 stop-process -Id $PID
 
 }
@@ -191,5 +188,4 @@ stop-process -Id $PID
 
 )
 
-#END OF THE SCRIPT, DO NOT MOVE
 $main_form.ShowDialog()
