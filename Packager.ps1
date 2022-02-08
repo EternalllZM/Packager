@@ -14,10 +14,11 @@ Write-Output `a" "
 $host.UI.RawUI.ForegroundColor = "Red"
 Write-Output `a"Ensure you have read the guide before running any commands."
 Write-Output `a"The guide is very specific about where you place files including this program."
-Invoke-WebRequest -Uri "https://github.com/EternalllZM/Packager/blob/main/Sys/Resources/Packager/background.png" -OutFile 'background.png'
-move-Item "background.png" -Destination ".\Sys\Resources\Packager" -force
-Invoke-WebRequest -Uri "https://github.com/EternalllZM/Packager/blob/main/Sys/Resources/Packager/karonline.ico" -OutFile 'karonline.ico'
-move-Item "karonline.ico" -Destination ".\Sys\Resources\Packager" -force
+New-Item -Path ".\Sys\Resources\Packager" -ItemType directory
+Invoke-WebRequest -Uri "https://github.com/EternalllZM/Packager/blob/main/Sys/Resources/background.png" -OutFile 'background.png'
+move-Item "background.png" -Destination ".\Sys\Resources\" -force
+Invoke-WebRequest -Uri "https://github.com/EternalllZM/Packager/blob/main/Sys/Resources/karonline.ico" -OutFile 'karonline.ico'
+move-Item "karonline.ico" -Destination ".\Sys\Resources\" -force
 $host.UI.RawUI.ForegroundColor = "White" # Basic write
 
 # Build GUI
@@ -38,13 +39,13 @@ $main_form.StartPosition = "CenterScreen"
 $Font = New-Object System.Drawing.Font("Arial",12,[System.Drawing.FontStyle]::Bold)
 $main_form.Font = $Font
 
-$Image = [system.drawing.image]::FromFile(".\Sys\Resources\Packager\background.png")
+$Image = [system.drawing.image]::FromFile(".\Sys\Resources\background.png")
 $main_form.BackgroundImage = $Image
 $main_form.BackgroundImageLayout = "None"
 $main_form.Width = $Image.Width
 $main_form.Height = $Image.Height
 
-$Icon = New-Object system.drawing.icon (".\Sys\Resources\Packager\karonline.ico")
+$Icon = New-Object system.drawing.icon (".\Sys\Resources\karonline.ico")
 $main_form.Icon = $Icon
 
 # Packager Update
@@ -78,9 +79,9 @@ $main_form.Controls.Add($Button)
 $Button.Add_Click(
 {
 
-Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Resources/Packager/CFU.bat' -OutFile 'CFU.bat'
-move-Item "CFU.bat" -Destination ".\Sys\Resources\Packager" -force
-$A = Start-Process -FilePath '.\Sys\Resources\Packager\CFU.bat' -Wait -passthru;$a.ExitCode
+Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Resources/CFU.bat' -OutFile 'CFU.bat'
+move-Item "CFU.bat" -Destination ".\Sys\Resources\" -force
+$A = Start-Process -FilePath '.\Sys\Resources\CFU.bat' -Wait -passthru;$a.ExitCode
 Remove-Item ".\CFU.bat" -force
 
 }
