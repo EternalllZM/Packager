@@ -64,7 +64,7 @@ Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/m
 Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Gamesettings/GYKJ01.ini' -OutFile 'GYKJ01.ini'
 Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Gamesettings/GYKP01.ini' -OutFile 'GYKP01.ini'
 Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Gamesettings/KHPE01.ini' -OutFile 'KHPE01.ini'
-Start-Sleep 
+Start-Sleep -Seconds 2
 $host.UI.RawUI.ForegroundColor = "Yellow"
 Write-Output `a"Freeing Kirby Air Ride..."
 move-Item "GYKE01.ini" -Destination ".\Sys\Gamesettings\" -force
@@ -157,9 +157,9 @@ copy-Item "GKYE01.ini" -Destination $selectedfolder
 copy-Item "KHPE01.ini" -Destination $selectedfolder
 [System.Windows.MessageBox]::Show('Press OK to update Gecko Codes and exit Packager.','Gecko Backup and Update Notice')
 Set-Location -Path User\GameSettings\
-Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/AirRideOnline/main/User/Gamesettings/GKYE01.ini' -OutFile 'GKYE01.ini'
-Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/AirRideOnline/main/User/Gamesettings/KHPE01.ini' -OutFile 'KHPE01.ini'
-Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/AirRideOnline/main/User/Gamesettings/modifier_guide.txt' -OutFile 'modifier_guide.txt'
+Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/User/Gamesettings/GKYE01.ini' -OutFile 'GKYE01.ini'
+Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/User/Gamesettings/KHPE01.ini' -OutFile 'KHPE01.ini'
+Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/User/Gamesettings/modifier_guide.txt' -OutFile 'modifier_guide.txt'
 [System.Windows.MessageBox]::Show('Gecko Codes Updated. Press OK to close out of Packager.','Gecko Codes Update')
 stop-process -Id $PID
 
@@ -187,7 +187,6 @@ $Button.Size = New-Object System.Drawing.Size(250,30)
 $Button.BackColor = "#D9534F"
 $Button.Text = "Close"
 $main_form.Controls.Add($Button)
-#Button Click
 $Button.Add_Click(
 
 {
