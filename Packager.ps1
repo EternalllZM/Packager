@@ -14,11 +14,6 @@ Write-Output `a" "
 $host.UI.RawUI.ForegroundColor = "Red"
 Write-Output `a"Ensure you have read the guide before running any commands."
 Write-Output `a"The guide is very specific about where you place files including this program."
-New-Item -Path ".\Sys\Resources\Packager" -ItemType directory
-Invoke-WebRequest -Uri "https://github.com/EternalllZM/Packager/blob/main/Sys/Resources/background.png" -OutFile 'background.png'
-move-Item "background.png" -Destination ".\Sys\Resources\" -force
-Invoke-WebRequest -Uri "https://github.com/EternalllZM/Packager/blob/main/Sys/Resources/karonline.ico" -OutFile 'karonline.ico'
-move-Item "karonline.ico" -Destination ".\Sys\Resources\" -force
 $host.UI.RawUI.ForegroundColor = "White" # Basic write
 
 # Build GUI
@@ -48,10 +43,33 @@ $main_form.Height = $Image.Height
 $Icon = New-Object system.drawing.icon (".\Sys\Resources\karonline.ico")
 $main_form.Icon = $Icon
 
-# Packager Update
+# Patch Slippi
 
 $Button = New-Object System.Windows.Forms.Button
 $Button.Location = New-Object System.Drawing.Size(70,40)
+$Button.Size = New-Object System.Drawing.Size(250,30)
+$Button.BackColor = "#D9534F"
+$Button.Text = "Patch Slippi"
+$main_form.Controls.Add($Button)
+#Button Click
+$Button.Add_Click(
+
+{
+
+$host.UI.RawUI.ForegroundColor = "Red"
+Write-Output `a"We are now patching Slippi..."
+$host.UI.RawUI.ForegroundColor = "Yellow"
+Write-Output `a"Freeing Kirby Air Ride..."
+Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Packager.ps1' -OutFile 'Packager.ps1'
+pause
+stop-process -Id $PID
+
+}
+
+)# Packager Update
+
+$Button = New-Object System.Windows.Forms.Button
+$Button.Location = New-Object System.Drawing.Size(70,160)
 $Button.Size = New-Object System.Drawing.Size(250,30)
 $Button.BackColor = "#428BCA"
 $Button.Text = "Update Packager"
@@ -64,11 +82,11 @@ $Button.Add_Click(
 Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Packager.ps1' -OutFile 'Packager.ps1'
 $host.UI.RawUI.ForegroundColor = "Red"
 Write-Output `a"Packager has successfully updated itself. Please do not run any further commands, and restart the application."
+pause
+stop-process -Id $PID
 
 }
-)
-
-# Check for Updates
+) # Check for Updates
 
 $Button = New-Object System.Windows.Forms.Button
 $Button.Location = New-Object System.Drawing.Size(70,80)
@@ -82,13 +100,13 @@ $Button.Add_Click(
 Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Resources/CFU.bat' -OutFile 'CFU.bat'
 move-Item "CFU.bat" -Destination ".\Sys\Resources\" -force
 $A = Start-Process -FilePath '.\Sys\Resources\CFU.bat' -Wait -passthru;$a.ExitCode
-Remove-Item ".\CFU.bat" -force
+Remove-Item ".\Sys\Resources\CFU.bat" -force
 
 }
-)
-# Gecko Restore Process
+) # Gecko Restore Process
+
 $Button = New-Object System.Windows.Forms.Button
-$Button.Location = New-Object System.Drawing.Size(70,160)
+$Button.Location = New-Object System.Drawing.Size(70,120)
 $Button.Size = New-Object System.Drawing.Size(250,30)
 $Button.BackColor = "#5CB85B"
 $Button.Text = "Restore Gecko Codes"
@@ -107,10 +125,10 @@ stop-process -Id $PID
 
 }
 
-)
-# Gecko Backup and Update Process
+) # Gecko Backup and Update Process
+
 $Button = New-Object System.Windows.Forms.Button
-$Button.Location = New-Object System.Drawing.Size(70,120)
+$Button.Location = New-Object System.Drawing.Size(70,200)
 $Button.Size = New-Object System.Drawing.Size(250,30)
 $Button.Text = "Backup and Update Gecko"
 $Button.BackColor = "#5CB85B"
@@ -136,46 +154,27 @@ Start-Sleep -Seconds 3
 stop-process -Id $PID
 
 }
-)
-# Generate Support Bundle
+) # Support Bundle
+
 $Button = New-Object System.Windows.Forms.Button
-$Button.Location = New-Object System.Drawing.Size(70,200)
+$Button.Location = New-Object System.Drawing.Size(70,240)
 $Button.Size = New-Object System.Drawing.Size(250,30)
-#$Button.BackColor = "#A1A1A1"
-$Button.Text = "Generate Support Bundle"
+$Button.Text = "Get Help"
 $main_form.Controls.Add($Button)
 #Button Click
 $Button.Add_Click(
 
 {
 
-$Label3.ForeColor = "#FFFFBA"
-$Label3.Text =  "Generating Support Bundle..."
+Write-Output `a"Generating Support Bundle..."
+Start-Process -FilePath https://www.kirbyairri.de/winpackager.html
 $A = Start-Process -FilePath '.\Kirby Air Ride Online Support\Generate Build Information.cmd' -Wait -passthru;$a.ExitCode
-Start-Sleep -Seconds 2
 [System.Windows.MessageBox]::Show('Support Bundle Generated.','Success.')
 
 }
 
-)
-#############SUPPORT DOC PROCESS#############
-$Button = New-Object System.Windows.Forms.Button
-$Button.Location = New-Object System.Drawing.Size(70,240)
-$Button.Size = New-Object System.Drawing.Size(250,30)
-#$Button.BackColor = "#A1A1A1"
-$Button.Text = "Packager Help"
-$main_form.Controls.Add($Button)
-#Button Click
-$Button.Add_Click(
+) # Exit Packager
 
-{
-
-Start-Process -FilePath https://www.kirbyairri.de/winpackager.html
-
-}
-
-)
-# Exit Packager
 $Button = New-Object System.Windows.Forms.Button
 $Button.Location = New-Object System.Drawing.Size(70,280)
 $Button.Size = New-Object System.Drawing.Size(250,30)
