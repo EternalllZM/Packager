@@ -1,10 +1,10 @@
-# Console Info Display (Packager v1.5+)
+# Console Info
 Write-Output `a"Welcome to the Kirby Air Ride Online: Packager"
 Write-Output `a"Created by Eternalll#6100 on Discord for the Kirby Workshop Community"
 Write-Output `a"https://kirbyairri.de"
 Write-Output `a" "
 $host.UI.RawUI.ForegroundColor = "Green"
-Write-Output `a"Packager Version:  v1.6"
+Write-Output `a"Packager Version:  v1.6.1"
 Write-Output `a"Gecko Codebase:    v2.0u3"
 Write-Output `a" "
 $host.UI.RawUI.ForegroundColor = "Yellow"
@@ -13,7 +13,7 @@ Write-Output `a"If versions match, you do not need to Update Packager at all."
 Write-Output `a" "
 $host.UI.RawUI.ForegroundColor = "Red"
 Write-Output `a"Ensure you have read the guide before running any commands."
-Write-Output `a"The guide is very specific about where you place files including this program."
+Write-Output `a"The guide is very specific about where you place this program in files."
 $host.UI.RawUI.ForegroundColor = "White"
 
 # Build GUI
@@ -66,6 +66,10 @@ Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/m
 move-Item "GYKP01.ini" -Destination ".\Sys\Gamesettings" -force
 Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Gamesettings/KHPE01.ini' -OutFile "KHPE01.ini"
 move-Item "KHPE01.ini" -Destination ".\Sys\Gamesettings" -force
+Set-Location -Path "User\GameSettings\"
+Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/User/Gamesettings/GKYE01.ini' -OutFile 'GKYE01.ini'
+Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/User/Gamesettings/KHPE01.ini' -OutFile 'KHPE01.ini'
+Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/User/Gamesettings/modifier_guide.txt' -OutFile 'modifier_guide.txt'
 [System.Windows.MessageBox]::Show('Kirby Air Ride can now be played online.','Patch Success')
 stop-process -Id $PID
 
@@ -77,7 +81,7 @@ $Button = New-Object System.Windows.Forms.Button
 $Button.Location = New-Object System.Drawing.Size(70,80)
 $Button.Size = New-Object System.Drawing.Size(250,30)
 $Button.BackColor = "#428BCA"
-$Button.Text = "Update Packager"
+$Button.Text = "Packager Update"
 $main_form.Controls.Add($Button)
 $Button.Add_Click(
 
@@ -147,7 +151,7 @@ Set-Location -Path User\Gamesettings
 copy-Item "GKYE01.ini" -Destination $selectedfolder
 copy-Item "KHPE01.ini" -Destination $selectedfolder
 [System.Windows.MessageBox]::Show('Press OK to update Gecko Codes and exit Packager.','Gecko Backup and Update Notice')
-Set-Location -Path User\GameSettings\
+Set-Location -Path "User\GameSettings\"
 Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/User/Gamesettings/GKYE01.ini' -OutFile 'GKYE01.ini'
 Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/User/Gamesettings/KHPE01.ini' -OutFile 'KHPE01.ini'
 Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/User/Gamesettings/modifier_guide.txt' -OutFile 'modifier_guide.txt'
