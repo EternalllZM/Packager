@@ -77,12 +77,12 @@ Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/m
 move-Item "GYKP01.ini" -Destination ".\Sys\Gamesettings" -force
 Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Gamesettings/KHPE01.ini' -OutFile "KHPE01.ini"
 move-Item "KHPE01.ini" -Destination ".\Sys\Gamesettings" -force
+Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Resources/GeckoVersion.txt' -OutFile 'GeckoVersion.txt'
+move-Item "GeckoVersion.txt" -Destination ".\Sys\Resources" -force
 Set-Location -Path "User\GameSettings\"
 Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/User/Gamesettings/GKYE01.ini' -OutFile 'GKYE01.ini'
 Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/User/Gamesettings/KHPE01.ini' -OutFile 'KHPE01.ini'
 Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/User/Gamesettings/modifier_guide.txt' -OutFile 'modifier_guide.txt'
-Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Resources/GeckoVersion.txt' -OutFile 'GeckoVersion.txt'
-move-Item "GeckoVersion.txt" -Destination ".\Sys\Resources" -force
 [System.Windows.MessageBox]::Show('Kirby Air Ride can now be played online.','Patch Success')
 stop-process -Id $PID
 
