@@ -34,23 +34,26 @@ read -p "Press Enter again to confirm you read and understand the information ab
 echo "We are now updating Packager..."
 sleep 2
 wget https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Resources/PackagerVersion.txt
-mv PackagerVersion.txt Sys/Resources/
+mv -f PackagerVersion.txt Sys/Resources/
 wget https://raw.githubusercontent.com/EternalllZM/Packager/main/Packager.sh
+mv -f Packager.sh.1 Packager.sh
 echo "Packager was updated. If your local version reported differently, please quit and restart the script to receive the latest fixes and updates."
 read -p "Press Enter to update Gecko Codes"
 echo "Updating Gecko Codes..."
 sleep 1
-wget http://raw.githubusercontent.com/EternalllZM/Packager/main/User/Gamesettings/GKYE01.ini
-wget http://raw.githubusercontent.com/EternalllZM/Packager/main/User/Gamesettings/KHPE01.ini
-wget http://raw.githubusercontent.com/EternalllZM/Packager/main/User/Gamesettings/modifier_guide.txt
-mv GKYE01.ini ./Sys/Gamesettings
-mv KHPE01.ini ./Sys/Gamesettings
-mv modifier_guide.txt ./Sys/Gamesettings
+wget https://raw.githubusercontent.com/EternalllZM/Packager/main/User/Gamesettings/GKYE01.ini
+wget https://raw.githubusercontent.com/EternalllZM/Packager/main/User/Gamesettings/KHPE01.ini
+wget https://raw.githubusercontent.com/EternalllZM/Packager/main/User/Gamesettings/modifier_guide.txt
+wget https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Resources/GeckoVersion.txt
+mv GeckoVersion.txt Sys/Resources/
+mv GKYE01.ini Sys/GameSettings/
+mv KHPE01.ini Sys/GameSettings/
+mv modifier_guide.txt Sys/GameSettings/
 echo "We will now patch Slippi. If you have already done this, you can quit the script now."
 read -p "Press Enter to patch Slippi"
-wget https://raw.githubusercontent.com/EternallZM/Packager/main/Sys/Gamesettings/GYKJ01.ini
-wget https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Gamesettings/GYKP01.ini
-mv GYKJ01.ini ./Sys/Gamesettings
-mv GYKP01.ini ./Sys/Gamesettings
+touch GYKJ01.ini
+touch GYKP01.ini
+mv GYKJ01.ini Sys/GameSettings/
+mv GYKP01.ini Sys/GameSettings/
 echo "We are done."
 read -p "Press Enter to exit"
