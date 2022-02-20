@@ -3,6 +3,12 @@ Write-Output `a"Welcome to the Kirby Air Ride Online: Packager"
 Write-Output `a"Created by Eternalll#6100 on Discord for the Kirby Workshop Community"
 Write-Output `a"https://kirbyairri.de"
 Write-Output `a" "
+$host.UI.RawUI.ForegroundColor = "Cyan"
+Write-Output `a"This version of Packager is approved to run on the following latest Dolphin version."
+Write-Output `a" "
+Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Resources/NetplayVersion.txt' -OutFile 'NetplayVersion.txt'
+Get-Content -Path ".\NetplayVersion.txt"
+Write-Output `a" "
 $host.UI.RawUI.ForegroundColor = "Green"
 Write-Output `a"Your local Packager version is listed as the following."
 Write-Output `a" "
@@ -10,7 +16,7 @@ Get-Content -Path ".\Sys\Resources\PackagerVersion.txt"
 Get-Content -Path ".\Sys\Resources\GeckoVersion.txt"
 Write-Output `a" "
 $host.UI.RawUI.ForegroundColor = "Yellow"
-Write-Output `a"The server reports the following versions as the latest Packager."
+Write-Output `a"The server reports the following versions as the latest."
 Write-Output `a"If versions match, you do not need to perform updates."
 Write-Output `a" "
 Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Resources/PackagerVersion.txt' -OutFile 'PackagerVersion.txt'
@@ -19,13 +25,19 @@ Get-Content -Path ".\PackagerVersion.txt"
 Get-Content -Path ".\GeckoVersion.txt"  
 Write-Output `a" "
 $host.UI.RawUI.ForegroundColor = "Red"
-Write-Output `a"Ensure you have read the guide before running any commands."
-Write-Output `a"The guide is very specific about where you place this program in files."
+Write-Output `a"Dolphin now runs on mainline, if you are not using this, the script will fail."
+Write-Output `a"This script must be located in your main Dolphin folder at the root alongside the Dolphin.exe executable."
+Write-Output `a"You must have ran Dolphin.exe once before running this script, otherwise it will fail."
 Write-Output `a" "
 # Post Initialization
+Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Resources/background.png' -OutFile 'background.png'
+Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Resources/karonline.ico' -OutFile 'karonline.ico'
+move-Item "background.png" -Destination ".\Sys\Resources" -force
+move-Item "karonline.ico" -Destination ".\Sys\Resources" -force
 $host.UI.RawUI.ForegroundColor = "White"
 Remove-Item ".\PackagerVersion.txt" -force
 Remove-Item ".\GeckoVersion.txt" -force
+Remove-Item ".\NetplayVersion.txt" -force
 
 # Build GUI
 
@@ -54,32 +66,23 @@ $main_form.Height = $Image.Height
 $Icon = New-Object system.drawing.icon (".\Sys\Resources\karonline.ico")
 $main_form.Icon = $Icon
 
-# Patch Slippi
+# Patch Dolphin
 
 $Button = New-Object System.Windows.Forms.Button
 $Button.Location = New-Object System.Drawing.Size(70,40)
 $Button.Size = New-Object System.Drawing.Size(250,30)
 $Button.BackColor = "#D9534F"
-$Button.Text = "Patch Slippi"
+$Button.Text = "Patch Dolphin"
 $main_form.Controls.Add($Button)
-#Button Click
 $Button.Add_Click(
 
 {
 
 $host.UI.RawUI.ForegroundColor = "Red"
-Write-Output `a"We are now patching Slippi."
-Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Gamesettings/GKYE01.ini' -OutFile "GKYE01.ini"
-move-Item "GKYE01.ini" -Destination ".\Sys\Gamesettings" -force
-Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Gamesettings/GYKJ01.ini' -OutFile "GYKJ01.ini"
-move-Item "GYKJ01.ini" -Destination ".\Sys\Gamesettings" -force
-Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Gamesettings/GYKP01.ini' -OutFile "GYKP01.ini"
-move-Item "GYKP01.ini" -Destination ".\Sys\Gamesettings" -force
-Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Gamesettings/KHPE01.ini' -OutFile "KHPE01.ini"
-move-Item "KHPE01.ini" -Destination ".\Sys\Gamesettings" -force
+Write-Output `a"We are now patching Dolphin."
 Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Resources/GeckoVersion.txt' -OutFile 'GeckoVersion.txt'
 move-Item "GeckoVersion.txt" -Destination ".\Sys\Resources" -force
-Set-Location -Path "User\GameSettings\"
+Set-Location -Path "C:\Users\$env:UserName\Documents\Dolphin Emulator\GameSettings"
 Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/User/Gamesettings/GKYE01.ini' -OutFile 'GKYE01.ini'
 Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/User/Gamesettings/KHPE01.ini' -OutFile 'KHPE01.ini'
 Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/User/Gamesettings/modifier_guide.txt' -OutFile 'modifier_guide.txt'
@@ -137,8 +140,8 @@ $Button.Add_Click(
     [System.Windows.MessageBox]::Show('Select your directory to restore codes from. This directory must contain .ini files ONLY.','Gecko Code Restore')
 $shell = New-Object -ComObject Shell.Application
 $selectedfolder = $shell.BrowseForFolder( 0, 'Select Directory Containing Backup', 16, $shell.NameSpace( 17 ).Self.Path ).Self.Path
-copy-Item "$selectedfolder\GKYE01.ini" -Destination ".\User\GameSettings"
-copy-Item "$selectedfolder\KHPE01.ini" -Destination ".\User\GameSettings"
+copy-Item "$selectedfolder\GKYE01.ini" -Destination "C:\Users\$env:UserName\Documents\Dolphin Emulator\GameSettings"
+copy-Item "$selectedfolder\KHPE01.ini" -Destination "C:\Users\$env:UserName\Documents\Dolphin Emulator\GameSettings"
 [System.Windows.MessageBox]::Show('Gecko Codes Restored.','Gecko Code Restore')
 stop-process -Id $PID
 
@@ -166,12 +169,12 @@ Set-Location -Path User\Gamesettings
 copy-Item "GKYE01.ini" -Destination $selectedfolder
 copy-Item "KHPE01.ini" -Destination $selectedfolder
 [System.Windows.MessageBox]::Show('Press OK to update Gecko Codes and exit Packager.','Gecko Backup and Update Notice')
-Set-Location -Path "User\GameSettings"
+Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Resources/GeckoVersion.txt' -OutFile 'GeckoVersion.txt'
+move-Item "GeckoVersion.txt" -Destination ".\Sys\Resources" -force
+Set-Location -Path "C:\Users\$env:UserName\Documents\Dolphin Emulator\GameSettings"
 Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/User/Gamesettings/GKYE01.ini' -OutFile 'GKYE01.ini'
 Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/User/Gamesettings/KHPE01.ini' -OutFile 'KHPE01.ini'
 Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/User/Gamesettings/modifier_guide.txt' -OutFile 'modifier_guide.txt'
-Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Resources/GeckoVersion.txt' -OutFile 'GeckoVersion.txt'
-move-Item "GeckoVersion.txt" -Destination ".\Sys\Resources" -force
 [System.Windows.MessageBox]::Show('Gecko Codes Updated.','Gecko Codes Update')
 stop-process -Id $PID
 
