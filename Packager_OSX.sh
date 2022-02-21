@@ -39,7 +39,7 @@ curl 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Resources/
 mv PackagerVersion_OSX.txt './Sys/Resources/'
 curl 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Packager_OSX.sh' -o 'Packager_OSX.sh'
 echo "Packager was updated. If your local version reported differently, please quit and restart the script to receive the latest fixes and updates."
-cd '/Users/$USER/Library/Application Support/Dolphin/GameSettings/'
+cd '~/Library/Application\ Support/Dolphin/GameSettings/'
 read -p "Press Enter to update Gecko Codes"
 echo "Updating Gecko Codes..."
 sleep 1
