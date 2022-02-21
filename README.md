@@ -12,7 +12,7 @@ The resource folder provides necessary contents to each script in a different wa
 
 ## Windows
 
-1. Download Packager content and copy contents into the ```root``` of your Dolphin folder (where the executable is located).
+1. Download Packager content
 2. Run Dolphin.exe once so that it may generate necessary folders.
 3. Set your game file paths, and other settings as needed.
 4. Right click ```Packager.ps1```, run with Powershell, then have it Patch Dolphin.
@@ -29,10 +29,12 @@ Do so by executing the following in an elevated Powershell session:
 ## MacOS
 
 1. Download Packager content
-2. Open a Terminal session and change directory to where you have Packager
-3. Run ```chmod a+x Packager_OSX.sh```
-4. Run ```./Packager_OSX.sh```
-5. Script will begin running and patch Dolphin with codes and other data.
+2. Run Dolphin.exe once so that it may generate necessary folders.
+3. Set your game file paths, and other settings as needed.
+4. Open a Terminal session and change directory to where you have Packager
+5. Run ```chmod a+x Packager_OSX.sh```
+6. Run ```./Packager_OSX.sh```
+7. Script will begin running and patch Dolphin with codes and other data.
 
 ## Linux
 
@@ -42,7 +44,9 @@ Do so by executing the following in an elevated Powershell session:
 ### Do not bother Dolphin developers regarding anything related to Packager.
 
 1. Download Packager content
-2. Open a Terminal session and change directory to where you have Packager
-3. Run ```chmod a+x Packager_GNU.sh```
-4. Run ```./Packager_GNU.sh```
-5. Script will begin running and patch Dolphin with codes and other data.
+2. Run Dolphin.exe once so that it may generate necessary folders.
+3. Set your game file paths, and other settings as needed.
+4. Open a Terminal session and change directory to where you have Packager
+5. Run ```chmod a+x Packager_GNU.sh```
+6. Run ```./Packager_GNU.sh```
+7. Script will begin running and patch Dolphin with codes and other data.
