@@ -16,6 +16,7 @@ The resource folder provides necessary contents to each script in a different wa
 2. Run Dolphin.exe once so that it may generate necessary folders.
 3. Set your game file paths, and other settings as needed.
 4. Right click ```Packager.ps1```, run with Powershell, then have it Patch Dolphin.
+   - For those using OneDrive folder redirection, use ```Packager_OneDrive.ps1``` instead.
 5. You should receive a successful patch message when the process completes, with no errors in the console.
 
 > If you are getting a Powershell error regarding script execution policy, you will need to configure PS to allow remote signed scripts. 
@@ -29,7 +30,7 @@ Do so by executing the following in an elevated Powershell session:
 
 1. Download Packager content
 2. Open a Terminal session and change directory to where you have Packager
-3. Run ```chmod a+x ./Packager_OSX.sh```
+3. Run ```chmod a+x Packager_OSX.sh```
 4. Run ```./Packager_OSX.sh```
 5. Script will begin running and patch Dolphin with codes and other data.
 
@@ -42,6 +43,6 @@ Do so by executing the following in an elevated Powershell session:
 
 1. Download Packager content
 2. Open a Terminal session and change directory to where you have Packager
-3. Run ```chmod a+x ./Packager_GNU.sh```
+3. Run ```chmod a+x Packager_GNU.sh```
 4. Run ```./Packager_GNU.sh```
 5. Script will begin running and patch Dolphin with codes and other data.
