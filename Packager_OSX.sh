@@ -41,12 +41,10 @@ echo "Packager was updated. If your local version reported differently, please q
 read -p "Press Enter to update Gecko Codes"
 echo "Updating Gecko Codes..."
 sleep 1
+cd '/Users/$USER/Library/Application Support/Dolphin/GameSettings/'
 curl 'http://raw.githubusercontent.com/EternalllZM/Packager/main/User/Gamesettings/GKYE01.ini' -o 'GKYE01.ini'
 curl 'http://raw.githubusercontent.com/EternalllZM/Packager/main/User/Gamesettings/KHPE01.ini' -o 'KHPE01.ini'
-curl 'http://raw.githubusercontent.com/EternalllZM/Packager/main/User/Gamesettings/modifier_guide.txt' - o 'modifier_guide.txt'
-mv GKYE01.ini '/Users/$USER/Library/Application Support/Dolphin/GameSettings/'
-mv KHPE01.ini '/Users/$USER/Library/Application Support/Dolphin/GameSettings/'
-mv modifier_guide.txt '/Users/$USER/Library/Application Support/Dolphin/GameSettings/'
+curl 'http://raw.githubusercontent.com/EternalllZM/Packager/main/User/Gamesettings/modifier_guide.txt' -o 'modifier_guide.txt'
 echo "Kirby Air Ride can now be played online."
 echo "We are done."
 read -p "Press Enter to exit"
