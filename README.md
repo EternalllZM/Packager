@@ -35,6 +35,11 @@ Do so by executing the following in an elevated Powershell session:
 
 ## Linux
 
+> It is assumed you know how to compile your own builds, compatible with the other NetPlay dolphin versions. Due to complications and massive variations in distributions,
+> we do not provide pre-compiled builds or any support regarding this. Since it is mainline Dolphin, you can view their docs 1:1 and receive support from them if necessary.
+
+### Do not bother Dolphin developers regarding anything related to Packager.
+
 1. Download Packager content
 2. Open a Terminal session and change directory to where you have Packager
 3. Run ```chmod a+x ./Packager_GNU.sh```
