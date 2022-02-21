@@ -35,4 +35,8 @@ Do so by executing the following in an elevated Powershell session:
 
 ## Linux
 
-> This script is not ready yet, but being actively developed.
+1. Download Packager content
+2. Open a Terminal session and change directory to where you have Packager
+3. Run ```chmod a+x ./Packager_GNU.sh```
+4. Run ```./Packager_GNU.sh```
+5. Script will begin running and patch Dolphin with codes and other data.
