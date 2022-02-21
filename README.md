@@ -15,7 +15,7 @@ The resource folder provides necessary contents to each script in a different wa
 1. Download Packager content and copy contents into the ```root``` of your Dolphin folder (where the executable is located).
 2. Run Dolphin.exe once so that it may generate necessary folders.
 3. Set your game file paths, and other settings as needed.
-4. Run Packager and have it Patch Dolphin.
+4. Right click ```Packager.ps1```, run with Powershell, then have it Patch Dolphin.
 5. You should receive a successful patch message when the process completes, with no errors in the console.
 
 > If you are getting a Powershell error regarding script execution policy, you will need to configure PS to allow remote signed scripts. 
