@@ -19,9 +19,9 @@ rm 'PackagerVersion_OSX.txt'
 rm 'GeckoVersion.txt'
 echo "The current versions of your Packager are:"
 echo " "
-cat '/Users/$USER/Library/Application Support/Dolphin/GameSettings/PackagerVersion_OSX.txt'
+cat '/Users/$USER/Library/Application\ Support/Dolphin/GameSettings/PackagerVersion_OSX.txt'
 echo " "
-cat '/Users/$USER/Library/Application Support/Dolphin/GameSettings/GeckoVersion.txt'
+cat '/Users/$USER/Library/Application\ Support/Dolphin/GameSettings/GeckoVersion.txt'
 echo " "
 echo " "
 echo "We will now update Packager, Update Gecko Codes, and Patch Dolphin in that order."
@@ -35,13 +35,13 @@ read -p "Press Enter again to confirm you read and understand the information ab
 echo "We are now updating Packager..."
 sleep 2
 curl 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Resources/PackagerVersion_OSX.txt' -o 'PackagerVersion_OSX.txt'
-mv PackagerVersion_OSX.txt '/Users/$USER/Library/Application Support/Dolphin/GameSettings/'
+mv PackagerVersion_OSX.txt '/Users/$USER/Library/Application\ Support/Dolphin/GameSettings/'
 curl 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Packager_OSX.sh' -o 'Packager_OSX.sh'
 echo "Packager was updated. If your local version reported differently, please quit and restart the script to receive the latest fixes and updates."
 read -p "Press Enter to update Gecko Codes"
 echo "Updating Gecko Codes..."
 sleep 1
-cd '/Users/$USER/Library/Application Support/Dolphin/GameSettings/'
+cd '/Users/$USER/Library/Application\ Support/Dolphin/GameSettings/'
 curl 'http://raw.githubusercontent.com/EternalllZM/Packager/main/User/Gamesettings/GKYE01.ini' -o 'GKYE01.ini'
 curl 'http://raw.githubusercontent.com/EternalllZM/Packager/main/User/Gamesettings/KHPE01.ini' -o 'KHPE01.ini'
 curl 'http://raw.githubusercontent.com/EternalllZM/Packager/main/User/Gamesettings/modifier_guide.txt' -o 'modifier_guide.txt'
