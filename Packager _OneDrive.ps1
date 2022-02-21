@@ -3,6 +3,9 @@ Write-Output `a"Welcome to the Kirby Air Ride Online: Packager"
 Write-Output `a"Created by Eternalll#6100 on Discord for the Kirby Workshop Community"
 Write-Output `a"https://kirbyairri.de"
 Write-Output `a" "
+$host.UI.RawUI.ForegroundColor = "Red"
+Write-Output `a"You are using the OneDrive redirect script version, please use the regular version if you do not use OneDrive folder redirection on your system."
+Write-Output `a" "
 $host.UI.RawUI.ForegroundColor = "Cyan"
 Write-Output `a"This version of Packager is approved to run on the following latest Dolphin version."
 Write-Output `a" "
@@ -92,7 +95,7 @@ stop-process -Id $PID
 }
 
 )# Packager Update
-    
+
 $Button = New-Object System.Windows.Forms.Button
 $Button.Location = New-Object System.Drawing.Size(70,80)
 $Button.Size = New-Object System.Drawing.Size(250,30)

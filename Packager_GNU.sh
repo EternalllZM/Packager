@@ -5,16 +5,20 @@ echo "https://kirbyairri.de"
 echo " " 
 wget https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Resources/PackagerVersion_GNU.txt
 wget https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Resources/GeckoVersion.txt
+wget https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Resources/NetplayVersion.txt
 echo " "
 echo " - - - - - IMPORTANT PLEASE READ - - - - -"
 echo " "
 echo "The Master Server reports the following versions as the latest:"
+echo " "
+cat 'NetplayVersion.txt'
 echo " "
 cat 'PackagerVersion_GNU.txt'
 echo " "
 cat 'GeckoVersion.txt'
 echo " "
 echo " "
+rm 'NetplayVersion.txt'
 rm 'PackagerVersion_GNU.txt'
 rm 'GeckoVersion.txt'
 echo "The current versions of your Packager are:"
@@ -25,6 +29,8 @@ cat './Sys/Resources/GeckoVersion.txt'
 echo " "
 echo " "
 echo "We will now update Packager and Patch Dolphin."
+echo " "
+echo "If your NetPlay version does not match the Dolphin version you downloaded, please download the correct version before continuing."
 echo " "
 echo "If your local version of Packager does not match the one reported by the Master Server, please exit out once this first part is done."
 echo " "
