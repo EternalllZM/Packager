@@ -5,9 +5,9 @@ echo "With assistance from !Hibyehello#5498, knux#6598 and Majestic#3774 from th
 echo "https://kirbyairri.de"
 sleep 3
 echo " " 
-curl 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Resources/PackagerVersion_OSX.txt' -LO > 'PackagerVersion_OSX.txt'
-curl 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Resources/GeckoVersion.txt' -LO > 'GeckoVersion.txt'
-curl 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Resources/NetplayVersion.txt' -LO > 'NetplayVersion.txt'
+curl 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Resources/PackagerVersion_OSX.txt' -LO
+curl 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Resources/GeckoVersion.txt' -LO
+curl 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Resources/NetplayVersion.txt' -LO
 echo " "
 echo " - - - - - IMPORTANT PLEASE READ - - - - -"
 echo " "
