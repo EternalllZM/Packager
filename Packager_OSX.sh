@@ -1,7 +1,9 @@
 #!/bin/bash
 echo "Welcome to the Kirby Air Ride Packager"
 echo "Created by Eternalll#6100 for the Kirby Workshop Community"
+echo "With assistance from !Hibyehello#5498, knux#6598 and Majestic#3774 from the Dolphin Discord. Thank you!"
 echo "https://kirbyairri.de"
+sleep 3
 echo " " 
 curl 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Resources/PackagerVersion_OSX.txt' -LO 'PackagerVersion_OSX.txt'
 curl 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Resources/GeckoVersion.txt' -LO 'GeckoVersion.txt'
