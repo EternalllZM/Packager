@@ -86,6 +86,9 @@ Set-Location -Path "C:\Users\$env:UserName\Documents\Dolphin Emulator\GameSettin
 Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/User/Gamesettings/GKYE01.ini' -OutFile 'GKYE01.ini'
 Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/User/Gamesettings/KHPE01.ini' -OutFile 'KHPE01.ini'
 Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/User/Gamesettings/modifier_guide.txt' -OutFile 'modifier_guide.txt'
+Set-Location -Path "C:\Users\$env:UserName\Documents\Dolphin Emulator\Config"
+Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Config/Dolphin.ini' -OutFile 'Dolphin.ini'
+Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Config/GFX.ini' -OutFile 'GFX.ini'
 [System.Windows.MessageBox]::Show('Kirby Air Ride can now be played online.','Patch Success')
 stop-process -Id $PID
 

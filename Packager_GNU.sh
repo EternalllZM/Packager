@@ -55,5 +55,10 @@ mv GeckoVersion.txt "./Sys/Resources/"
 mv GKYE01.ini "/home/$USER/.local/share/dolphin-emu/GameSettings/"
 mv KHPE01.ini "/home/$USER/.local/share/dolphin-emu/GameSettings/"
 mv modifier_guide.txt "/home/$USER/.local/share/dolphin-emu/GameSettings/"
+read -p "Press Enter to patch Dolphin. Your settings will be reset as this should only be run on your first setup."
+wget https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Config/Dolphin.ini
+wget https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Config/GFX.ini
+mv Dolphin.ini "/home/$USER/.config/dolphin-emu"
+mv GFX.ini "/home/$USER/.config/dolphin-emu"
 echo "We are done."
 read -p "Press Enter to exit"

@@ -31,7 +31,6 @@ echo "If this is your first time running the script, you will not have local ver
 echo " "
 echo "You may stop the script at any time after each process if you do not want to perform the next step. You must run through all three steps your first time."
 read -p "Press Enter to update Packager"
-
 read -p "Press Enter again to confirm you read and understand the information above"
 echo "We are now updating Packager..."
 sleep 2
