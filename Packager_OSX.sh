@@ -7,10 +7,13 @@ sleep 3
 echo " " 
 curl 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Resources/PackagerVersion_OSX.txt' -LO 'PackagerVersion_OSX.txt'
 curl 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Resources/GeckoVersion.txt' -LO 'GeckoVersion.txt'
+curl 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Resources/NetplayVersion.txt' -LO 'NetplayVersion.txt'
 echo " "
 echo " - - - - - IMPORTANT PLEASE READ - - - - -"
 echo " "
 echo "The Master Server reports the following versions as the latest:"
+echo " "
+cat 'NetplayVersion.txt'
 echo " "
 cat 'PackagerVersion_OSX.txt'
 echo " "
@@ -47,6 +50,9 @@ sleep 1
 curl 'http://raw.githubusercontent.com/EternalllZM/Packager/main/User/Gamesettings/GKYE01.ini' -LO 'GKYE01.ini'
 curl 'http://raw.githubusercontent.com/EternalllZM/Packager/main/User/Gamesettings/KHPE01.ini' -LO 'KHPE01.ini'
 curl 'http://raw.githubusercontent.com/EternalllZM/Packager/main/User/Gamesettings/modifier_guide.txt' -LO 'modifier_guide.txt'
+read -p "Press Enter to patch Dolphin. Your settings will be reset as this should only be run on your first setup."
+cd ~/'Library/Application Support/Dolphin/Config/'
+curl 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Config/Dolphin.ini' -LO 'Dolphin.ini'
+curl 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Config/GFX.ini' -LO 'GFX.ini'
 echo "Kirby Air Ride can now be played online."
-echo "We are done."
 read -p "Press Enter to exit"

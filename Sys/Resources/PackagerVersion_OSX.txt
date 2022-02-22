@@ -1,1 +1,1 @@
-Packager Version:  v1.7.0-mac beta 1
+Packager Version:  v1.7.0-mac beta 2
