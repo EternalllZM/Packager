@@ -3,8 +3,8 @@ echo "Welcome to the Kirby Air Ride Packager"
 echo "Created by Eternalll#6100 for the Kirby Workshop Community"
 echo "https://kirbyairri.de"
 echo " " 
-curl 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Resources/PackagerVersion_OSX.txt' -o 'PackagerVersion_OSX.txt'
-curl 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Resources/GeckoVersion.txt' -o 'GeckoVersion.txt'
+curl 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Resources/PackagerVersion_OSX.txt' -LO 'PackagerVersion_OSX.txt'
+curl 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Resources/GeckoVersion.txt' -LO 'GeckoVersion.txt'
 echo " "
 echo " - - - - - IMPORTANT PLEASE READ - - - - -"
 echo " "
@@ -34,17 +34,17 @@ read -p "Press Enter to update Packager"
 read -p "Press Enter again to confirm you read and understand the information above"
 echo "We are now updating Packager..."
 sleep 2
-curl 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Resources/PackagerVersion_OSX.txt' -o 'PackagerVersion_OSX.txt'
+curl 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Resources/PackagerVersion_OSX.txt' -LO 'PackagerVersion_OSX.txt'
 mv PackagerVersion_OSX.txt './Sys/Resources/'
-curl 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Packager_OSX.sh' -o 'Packager_OSX.sh'
+curl 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Packager_OSX.sh' -LO 'Packager_OSX.sh'
 echo "Packager was updated. If your local version reported differently, please quit and restart the script to receive the latest fixes and updates."
 cd ~/'Library/Application Support/Dolphin/Gamesettings/'
 read -p "Press Enter to update Gecko Codes"
 echo "Updating Gecko Codes..."
 sleep 1
-curl 'http://raw.githubusercontent.com/EternalllZM/Packager/main/User/Gamesettings/GKYE01.ini' -o 'GKYE01.ini'
-curl 'http://raw.githubusercontent.com/EternalllZM/Packager/main/User/Gamesettings/KHPE01.ini' -o 'KHPE01.ini'
-curl 'http://raw.githubusercontent.com/EternalllZM/Packager/main/User/Gamesettings/modifier_guide.txt' -o 'modifier_guide.txt'
+curl 'http://raw.githubusercontent.com/EternalllZM/Packager/main/User/Gamesettings/GKYE01.ini' -LO 'GKYE01.ini'
+curl 'http://raw.githubusercontent.com/EternalllZM/Packager/main/User/Gamesettings/KHPE01.ini' -LO 'KHPE01.ini'
+curl 'http://raw.githubusercontent.com/EternalllZM/Packager/main/User/Gamesettings/modifier_guide.txt' -LO 'modifier_guide.txt'
 echo "Kirby Air Ride can now be played online."
 echo "We are done."
 read -p "Press Enter to exit"
