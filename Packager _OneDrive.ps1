@@ -1,10 +1,5 @@
 # Console Info
-Write-Output `a"Welcome to the Kirby Air Ride Online: Packager"
-Write-Output `a"Created by Eternalll#6100 on Discord for the Kirby Workshop Community"
-Write-Output `a"https://kirbyairri.de"
-Write-Output `a" "
-$host.UI.RawUI.ForegroundColor = "Red"
-Write-Output `a"You are using the OneDrive redirect script version, please use the regular version if you do not use OneDrive folder redirection on your system."
+Write-Output `a"Welcome to the Kirby Air Ride Packager, created by Eternalll#6100 for the Kirby Workshop Community https://kirbyairri.de"
 Write-Output `a" "
 $host.UI.RawUI.ForegroundColor = "Cyan"
 Write-Output `a"This version of Packager is approved to run on the following latest Dolphin version."
@@ -13,12 +8,6 @@ Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/m
 Get-Content -Path ".\NetplayVersion.txt"
 Write-Output `a" "
 $host.UI.RawUI.ForegroundColor = "Green"
-Write-Output `a"Your local Packager version is listed as the following."
-Write-Output `a" "
-Get-Content -Path ".\Sys\Resources\PackagerVersion.txt"
-Get-Content -Path ".\Sys\Resources\GeckoVersion.txt"
-Write-Output `a" "
-$host.UI.RawUI.ForegroundColor = "Yellow"
 Write-Output `a"The server reports the following versions as the latest."
 Write-Output `a"If versions match, you do not need to perform updates."
 Write-Output `a" "
@@ -27,10 +16,16 @@ Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/m
 Get-Content -Path ".\PackagerVersion.txt"
 Get-Content -Path ".\GeckoVersion.txt"  
 Write-Output `a" "
+$host.UI.RawUI.ForegroundColor = "Yellow"
+Write-Output `a"Your local Packager version is listed as the following."
+Write-Output `a" "
+Get-Content -Path ".\Sys\Resources\PackagerVersion.txt"
+Get-Content -Path ".\Sys\Resources\GeckoVersion.txt"
+Write-Output `a" "
 $host.UI.RawUI.ForegroundColor = "Red"
-Write-Output `a"Dolphin now runs on mainline, if you are not using this, the script will fail."
-Write-Output `a"This script must be located in your main Dolphin folder at the root alongside the Dolphin.exe executable."
-Write-Output `a"You must have ran Dolphin.exe once before running this script, otherwise it will fail."
+Write-Output `a"Ensure you have run Dolphin once before running anything in this script."
+Write-Output `a"Patching Dolphin will reset your settings to the default and recommended settings for Netplay."
+Write-Output `a"If you do not use OneDrive folder redirection, do not use this script and instead use the regular Packager.ps1 variant."
 Write-Output `a" "
 # Post Initialization
 Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Resources/background.png' -OutFile 'background.png'
@@ -82,14 +77,14 @@ $Button.Add_Click(
 {
 
 $host.UI.RawUI.ForegroundColor = "Red"
-Write-Output `a"We are now patching Dolphin."
+[System.Windows.MessageBox]::Show('We will now Patch Dolphin and reset settings to default/netplay optimized.')
 Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Resources/GeckoVersion.txt' -OutFile 'GeckoVersion.txt'
 move-Item "GeckoVersion.txt" -Destination ".\Sys\Resources" -force
 Set-Location -Path "C:\Users\$env:UserName\OneDrive\Documents\Dolphin Emulator\GameSettings"
 Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/User/Gamesettings/GKYE01.ini' -OutFile 'GKYE01.ini'
 Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/User/Gamesettings/KHPE01.ini' -OutFile 'KHPE01.ini'
 Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/User/Gamesettings/modifier_guide.txt' -OutFile 'modifier_guide.txt'
-Set-Location -Path "C:\Users\$env:UserName\Documents\Dolphin Emulator\Config"
+Set-Location -Path "C:\Users\$env:UserName\OneDrive\Documents\Dolphin Emulator\Config"
 Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Config/Dolphin.ini' -OutFile 'Dolphin.ini'
 Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Config/GFX.ini' -OutFile 'GFX.ini'
 [System.Windows.MessageBox]::Show('Kirby Air Ride can now be played online.','Patch Success')

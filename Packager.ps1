@@ -25,6 +25,7 @@ Write-Output `a" "
 $host.UI.RawUI.ForegroundColor = "Red"
 Write-Output `a"Ensure you have run Dolphin once before running anything in this script."
 Write-Output `a"Patching Dolphin will reset your settings to the default and recommended settings for Netplay."
+Write-Output `a"If you use OneDrive folder redirection, do not use this script and instead use the Packager_OneDrive.ps1 variant."
 Write-Output `a" "
 # Post Initialization
 Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Resources/background.png' -OutFile 'background.png'
