@@ -1,1 +1,1 @@
-Packager Version:  v1.7.1-win
+Packager Version:  v1.7.2-win
