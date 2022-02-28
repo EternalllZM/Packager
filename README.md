@@ -1,52 +1,45 @@
-# Packager
-A Packager for Air Ride Online.
+# Packager for Kirby Air Ride
 
-> What is Packager?
+## What is Packager?
 
-Packager at its core is a zip file including a script (for each operating system) and a resource folder. 
-The resource folder provides necessary contents to each script in a different way. All scripts will:
+Packager is a 10Kb zip file that includes scripts and resources for all operating systems. All scripts will:
 
 - Patch mainline Dolphin for the latest Air Ride.
 - Check for updates automatically (but not update automatically).
-- Provide the latest Gecko codes to the Dolphin profile.
+- Pull the latest Gecko codes available
+
+##### Do not bother Dolphin developers regarding anything related to Packager.
+
+## Pre-requisites
+
+1. Download the latest supported [Dolphin Beta Version](https://www.kirbyairri.de/netplay.html).
+2. Download [Packager content](https://github.com/EternalllZM/Packager/releases).
+3. Run Dolphin Emulator at least once so that the folders exist for the script to use.
+> Beware that when you patch Dolphin, your config and graphics settings are reset. Configure those **after** the steps below are complete.
 
 ## Windows
 
-1. Download Packager content
-2. Run Dolphin Emulator once so that it may generate necessary folders.
-3. Set your game file paths, and other settings as needed.
-4. Right click ```Packager.ps1```, run with Powershell, then have it Patch Dolphin.
+1. Right click ```Packager.ps1```, run with Powershell, then have it Patch Dolphin.
    - For those using OneDrive folder redirection, use ```Packager_OneDrive.ps1``` instead.
-5. You should receive a successful patch message when the process completes, with no errors in the console.
+2. You should receive a successful patch message when the process completes, with no errors in the console.
+   - Other functions are available to use after Patching Dolphin if you wish.
 
-> If you are getting a Powershell error regarding script execution policy, you will need to configure PS to allow remote signed scripts. 
-Do so by executing the following in an elevated Powershell session:
-
-```Set-ExecutionPolicy RemoteSigned``` or ```Set-ExecutionPolicy Unrestricted```
-
-> Once complete, you should return your system back to a restricted execution policy.
+> If PowerShell is giving an error regarding execution policy, you will need to change PS to allow remote signed scripts.
+> ```Set-ExecutionPolicy RemoteSigned``` or ```Set-ExecutionPolicy Unrestricted```
 
 ## MacOS
 
-1. Download Packager content
-2. Run Dolphin Emulator once so that it may generate necessary folders.
-3. Set your game file paths, and other settings as needed.
-4. Open a Terminal session and change directory to where you have Packager
-5. Run ```chmod a+x Packager_OSX.sh```
-6. Run ```./Packager_OSX.sh```
-7. Script will begin running and patch Dolphin with codes and other data.
+1. Open a Terminal session and change directory to where you have Packager.
+2. Run ```chmod a+x Packager_OSX.sh``` to set the script as executable.
+3. Run ```./Packager_OSX.sh``` to run the script.
+4. Script will run, follow instructions provided within the script.
 
 ## Linux
 
+1. Open a Terminal session and change directory to where you have Packager.
+2. Run ```chmod a+x Packager_GNU.sh``` to set the script as executable.
+3. Run ```./Packager_GNU.sh``` to run the script.
+4. Script will run, follow instructions provided within the script.
+
 > It is assumed you know how to compile your own builds, compatible with the other NetPlay dolphin versions. Due to complications and massive variations in distributions,
 > we do not provide pre-compiled builds or any support regarding this. Since it is mainline Dolphin, you can view their docs 1:1 and receive support from them if necessary.
-
-### Do not bother Dolphin developers regarding anything related to Packager.
-
-1. Download Packager content
-2. Run Dolphin Emulator once so that it may generate necessary folders.
-3. Set your game file paths, and other settings as needed.
-4. Open a Terminal session and change directory to where you have Packager
-5. Run ```chmod a+x Packager_GNU.sh```
-6. Run ```./Packager_GNU.sh```
-7. Script will begin running and patch Dolphin with codes and other data.
