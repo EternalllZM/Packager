@@ -5,6 +5,7 @@ sleep 5
 wget https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Resources/PackagerVersion_GNU.txt
 wget https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Resources/GeckoVersion.txt
 wget https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Resources/NetplayVersion.txt
+wget https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Resources/gnu_Motd.txt
 echo " "
 echo "The Master Server reports the following versions as the latest:"
 echo " "
@@ -27,11 +28,9 @@ cat './Sys/Resources/GeckoVersion.txt'
 echo " "
 echo " "
 sleep 3
-echo "We will now update Packager, Update Gecko Codes, and Patch Dolphin in that order."
+cat 'gnu_Motd.txt'
+rm 'gnu_Motd.txt'
 echo " "
-echo "If Packager version does not match the latest, exit and restart the script after it is updated (first step)."
-echo " "
-echo "You must run through all three steps your first time to patch Dolphin successfully."
 sleep 5
 read -p "Press Enter to update Packager"
 read -p "Press Enter again to confirm you read and understand the information above"
@@ -42,6 +41,8 @@ mv PackagerVersion_GNU.txt './Sys/Resources/'
 wget https://raw.githubusercontent.com/EternalllZM/Packager/main/Packager_GNU.sh
 mv -f Packager_GNU.sh.1 Packager_GNU.sh
 echo "Packager was updated. Please exit and restart if your local version was different from the reported server version."
+echo " "
+sleep 3
 read -p "Press Enter to update Gecko Codes"
 echo "Updating Gecko Codes..."
 wget http://raw.githubusercontent.com/EternalllZM/Packager/main/User/Gamesettings/GKYE01.ini
@@ -52,11 +53,14 @@ mv GeckoVersion.txt "./Sys/Resources/"
 mv GKYE01.ini "/home/$USER/.local/share/dolphin-emu/GameSettings/"
 mv KHPE01.ini "/home/$USER/.local/share/dolphin-emu/GameSettings/"
 mv modifier_guide.txt "/home/$USER/.local/share/dolphin-emu/GameSettings/"
+echo " "
 read -p "Press Enter to patch Dolphin."
-read -p "WARNING: Your existing graphics and configuration settings will be reset. This should only be run on your first setup. Press Enter to continue"
+echo "Patching Dolphin should only be done on your first run, or when you want to reset to pre-set default settings. Exit the script if you do not wish to do this."
+read -p "Press Enter to set default settings."
 wget https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Config/Dolphin.ini
-wget https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Config/GFX.ini
 mv Dolphin.ini "/home/$USER/.config/dolphin-emu"
+read -p "Press Enter to reset graphics settings."
+wget https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Config/GFX.ini
 mv GFX.ini "/home/$USER/.config/dolphin-emu"
 echo "Kirby Air Ride can now be played online."
 read -p "Press Enter to exit"

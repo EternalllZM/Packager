@@ -6,6 +6,7 @@ sleep 5
 curl -sS 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Resources/PackagerVersion_OSX.txt' -LO
 curl -sS 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Resources/GeckoVersion.txt' -LO
 curl -sS 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Resources/NetplayVersion.txt' -LO
+curl -sS 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Resources/osx_Motd.txt' -LO
 echo " "
 echo "The Master Server reports the following versions as the latest:"
 echo " "
@@ -28,11 +29,9 @@ cat './Sys/Resources/GeckoVersion.txt'
 echo " "
 echo " "
 sleep 3
-echo "We will now update Packager, Update Gecko Codes, and Patch Dolphin in that order."
+cat 'osx_Motd.txt'
+rm 'osx_Motd.txt'
 echo " "
-echo "If Packager version does not match the latest, exit and restart the script after it is updated (first step)."
-echo " "
-echo "You must run through all three steps your first time to patch Dolphin successfully."
 sleep 5
 read -p "Press Enter to update Packager"
 read -p "Press Enter again to confirm you read and understand the information above"
@@ -41,16 +40,19 @@ curl -sS 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Resour
 mv PackagerVersion_OSX.txt './Sys/Resources/'
 curl -sS 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Packager_OSX.sh' -LO
 echo "Packager was updated. Please exit and restart if your local version was different from the reported server version."
-cd ~/'Library/Application Support/Dolphin/Gamesettings/'
+echo " "
 read -p "Press Enter to update Gecko Codes"
 echo "Updating Gecko Codes..."
+cd ~/'Library/Application Support/Dolphin/Gamesettings/'
 curl -sS 'http://raw.githubusercontent.com/EternalllZM/Packager/main/User/Gamesettings/GKYE01.ini' -LO
 curl -sS 'http://raw.githubusercontent.com/EternalllZM/Packager/main/User/Gamesettings/KHPE01.ini' -LO
 curl -sS 'http://raw.githubusercontent.com/EternalllZM/Packager/main/User/Gamesettings/modifier_guide.txt' -LO
 read -p "Press Enter to patch Dolphin."
-read -p "WARNING: Your existing graphics and configuration settings will be reset. This should only be run on your first setup. Press Enter to continue"
+echo "Patching Dolphin should only be done on your first run, or when you want to reset to pre-set default settings. Exit the script if you do not wish to do this."
+read -p "Press Enter to set default settings."
 cd ~/'Library/Application Support/Dolphin/Config/'
 curl -sS 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Config/Dolphin.ini' -LO
+read -p "Press Enter to reset graphics settings."
 curl -sS 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Config/GFX.ini' -LO
 echo "Kirby Air Ride can now be played online."
 read -p "Press Enter to exit"
