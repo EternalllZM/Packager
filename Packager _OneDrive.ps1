@@ -22,20 +22,19 @@ Write-Output `a" "
 Get-Content -Path ".\Sys\Resources\PackagerVersion.txt"
 Get-Content -Path ".\Sys\Resources\GeckoVersion.txt"
 Write-Output `a" "
-$host.UI.RawUI.ForegroundColor = "Red"
-Write-Output `a"Ensure you have run Dolphin once before running anything in this script."
-Write-Output `a"Patching Dolphin will reset your settings to the default and recommended settings for Netplay."
-Write-Output `a"If you do not use OneDrive folder redirection, do not use this script and instead use the regular Packager.ps1 variant."
+$host.UI.RawUI.ForegroundColor = "White"
+Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Resources/win_Motd.txt' -OutFile 'win_Motd.txt'
+Get-Content -Path ".\win_Motd.txt"
 Write-Output `a" "
 # Post Initialization
 Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Resources/background.png' -OutFile 'background.png'
 Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Resources/karonline.ico' -OutFile 'karonline.ico'
 move-Item "background.png" -Destination ".\Sys\Resources" -force
 move-Item "karonline.ico" -Destination ".\Sys\Resources" -force
-$host.UI.RawUI.ForegroundColor = "White"
 Remove-Item ".\PackagerVersion.txt" -force
 Remove-Item ".\GeckoVersion.txt" -force
 Remove-Item ".\NetplayVersion.txt" -force
+Remove-Item ".\win_Motd.txt" -force
 
 # Build GUI
 
@@ -105,7 +104,7 @@ $Button.Add_Click(
 {
 
 [System.Windows.MessageBox]::Show('Attempting to update Packager content.','Packager Update Notice')
-Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Packager.ps1' -OutFile 'Packager.ps1'
+Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Packager_OneDrive.ps1' -OutFile 'Packager_OneDrive.ps1'
 Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Resources/PackagerVersion.txt' -OutFile 'PackagerVersion.txt'
 move-Item "PackagerVersion.txt" -Destination ".\Sys\Resources" -force
 [System.Windows.MessageBox]::Show('Packager has been updated.','Update Success')
