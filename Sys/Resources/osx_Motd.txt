@@ -1,0 +1,7 @@
+Message of the day:
+
+We will now update Packager, Update Gecko Codes, and Patch Dolphin in that order.
+
+If Packager version does not match the latest, exit and restart the script after it is updated (first step).
+
+You must run through all three steps your first time to patch Dolphin successfully.
