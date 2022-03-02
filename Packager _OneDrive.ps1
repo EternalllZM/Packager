@@ -23,7 +23,7 @@ Get-Content -Path ".\Sys\Resources\PackagerVersion.txt"
 Get-Content -Path ".\Sys\Resources\GeckoVersion.txt"
 Write-Output `a" "
 $host.UI.RawUI.ForegroundColor = "White"
-Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Resources/win_Motd.txt' -OutFile 'win_Motd.txt'
+Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Motd/win_Motd.txt' -OutFile 'win_Motd.txt'
 Get-Content -Path ".\win_Motd.txt"
 Write-Output `a" "
 # Post Initialization

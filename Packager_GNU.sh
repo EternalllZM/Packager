@@ -5,7 +5,7 @@ sleep 5
 wget https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Resources/PackagerVersion_GNU.txt
 wget https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Resources/GeckoVersion.txt
 wget https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Resources/NetplayVersion.txt
-wget https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Resources/gnu_Motd.txt
+wget https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Motd/gnu_Motd.txt
 echo " "
 echo "The Master Server reports the following versions as the latest:"
 echo " "

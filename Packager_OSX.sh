@@ -6,7 +6,7 @@ sleep 5
 curl -sS 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Resources/PackagerVersion_OSX.txt' -LO
 curl -sS 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Resources/GeckoVersion.txt' -LO
 curl -sS 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Resources/NetplayVersion.txt' -LO
-curl -sS 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Resources/osx_Motd.txt' -LO
+curl -sS 'https://raw.githubusercontent.com/EternalllZM/Packager/main/Sys/Motd/osx_Motd.txt' -LO
 echo " "
 echo "The Master Server reports the following versions as the latest:"
 echo " "
