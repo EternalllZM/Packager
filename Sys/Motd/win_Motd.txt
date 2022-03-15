@@ -1,3 +1,3 @@
-Message of the day:
+Message of the day: Dolphin 5.0-16101 is now available for use with NetPlay and is the new standard version!
 
 Ensure you have run Dolphin once before running anything in this script.

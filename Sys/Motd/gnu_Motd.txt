@@ -1,4 +1,4 @@
-Message of the day:
+Message of the day: Dolphin 5.0-16101 is now available for use with NetPlay and is the new standard version!
 
 We will now update Packager, Update Gecko Codes, and Patch Dolphin in that order.
 
